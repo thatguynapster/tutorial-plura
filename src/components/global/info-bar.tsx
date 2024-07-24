@@ -31,6 +31,8 @@ const InfoBar = ({ notifications, subAccountId, className, role }: Props) => {
   const [show, setShow] = useState(true);
   const [showAll, setShowAll] = useState(true);
 
+  console.log(notifications);
+
   const handleClick = () => {
     if (!showAll) {
       setAllNotifications(notifications);
@@ -83,11 +85,11 @@ const InfoBar = ({ notifications, subAccountId, className, role }: Props) => {
                 <div className="flex gap-2">
                   <Avatar>
                     <AvatarImage
-                      src={notification.user.avatarUrl}
+                      src={notification.User.avatarUrl}
                       alt="Profile Picture"
                     />
                     <AvatarFallback className="bg-primary">
-                      {notification.user.name.slice(0, 2).toUpperCase()}
+                      {notification.User?.name.slice(0, 2).toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
 

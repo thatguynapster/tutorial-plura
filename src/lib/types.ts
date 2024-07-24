@@ -3,7 +3,7 @@ import { getUserAuthDetails, getUserPermissions } from "./queries";
 
 export type NotificationWithUser =
   | ({
-      user: {
+      User: {
         id: string;
         name: string;
         avatarUrl: string;
