@@ -152,7 +152,7 @@ const UserDetails = ({ id, type, subAccounts, userData }: Props) => {
     if (response) {
       toast({
         title: "Success",
-        description: "The request was successfull",
+        description: "The request was successful",
       });
       if (subAccountPermissions) {
         subAccountPermissions.Permissions.find((perm) => {
@@ -352,11 +352,11 @@ const UserDetails = ({ id, type, subAccounts, userData }: Props) => {
                           disabled={loadingPermissions}
                           checked={subAccountPermissionsDetails?.access}
                           onCheckedChange={(permission) => {
-                            // onChangePermission(
-                            //   subAccount.id,
-                            //   permission,
-                            //   subAccountPermissionsDetails?.id
-                            // );
+                            onChangePermission(
+                              subAccount.id,
+                              permission,
+                              subAccountPermissionsDetails?.id
+                            );
                           }}
                         />
                       </div>

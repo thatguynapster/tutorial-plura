@@ -1,13 +1,16 @@
 import { ModeToggle } from "@/components/global/mode-toggle";
 import { UserButton } from "@clerk/nextjs";
-import { User } from "@clerk/nextjs/server";
+import { currentUser, User } from "@clerk/nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 type Props = { user?: null | User };
 
-const Navigation = (props: Props) => {
+const Navigation = async (props: Props) => {
+  const authUser = await currentUser();
+  console.log("user:", authUser);
+
   return (
     <div className="p-4 flex items-center justify-between relative">
       <aside className="flex items-center gap-2">
@@ -34,7 +37,7 @@ const Navigation = (props: Props) => {
           href={"/agency"}
           className="bg-primary text-white p-2 px-4 rounded-md hover:bg-primary/80"
         >
-          Login
+          {authUser ? "Dashboard" : "Login"}
         </Link>
 
         <UserButton />
